@@ -158,14 +158,14 @@ fbq('track', 'PageView');
 
       <!-- Leque de fotos -->
       <div class="photo-stack" id="photoStack" aria-hidden="true">
-        <img class="photo p1" src="https://i.imgur.com/6k7kjR5.jpeg" alt="Daynara foto 1">
-        <img class="photo p2" src="https://i.imgur.com/hCo3iKi.jpeg" alt="Daynara foto 2">
-        <img class="photo p3" src="https://i.imgur.com/lUPysvL.jpeg" alt="Daynara foto 3">
+        <img class="photo p1" src="https://i.imgur.com/6k7kjR5.jpeg" alt="Yasmin foto 1">
+        <img class="photo p2" src="https://i.imgur.com/hCo3iKi.jpeg" alt="Yasmin foto 2">
+        <img class="photo p3" src="https://i.imgur.com/lUPysvL.jpeg" alt="Yasmin foto 3">
       </div>
 
       <div class="gradient"></div>
       <div class="overlay">
-        <div class="name">Daynara<span class="age">, 19</span></div>
+        <div class="name">Yasmin<span class="age">, 19</span></div>
 
         <div class="seeking">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -193,13 +193,14 @@ fbq('track', 'PageView');
   <!-- Overlay de proximidade -->
   <div class="intro-overlay" id="introOverlay" aria-live="polite" aria-hidden="true">
     <div class="intro-bubble">
-      <span>Você e Daynara estão muito perto um do outro!</span>
+      <span>Você e Yasmin estão muito perto um do outro!</span>
     </div>
   </div>
 
   <!-- áudio -->
   <audio id="notifSound" src="./notification.mp3" preload="auto"></audio>
 
+  <script src="./numeros.js"></script>
   <script>
     // -------- Localização + km (SEM API) --------
     (function carregarLocalizacao() {
@@ -235,16 +236,12 @@ fbq('track', 'PageView');
       'Oi podemos conversar?',
       'Oi quero te conhecer'
     ];
-    const numeros = [
-      '5517981117565',
-      '5511962692825',
-
-    ]
     
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    const randomNumero = numeros[Math.floor(Math.random() * numeros.length)];
+    const randomNumero = window.NUMEROS[Math.floor(Math.random() * window.NUMEROS.length)];
+    console.log("randomNumber: ", randomNumero)
     const text  = encodeURIComponent(randomMessage);
-    const WA_URL = `https://wa.me/55${randomNumero}?text=${text}`;
+    const WA_URL = `https://wa.me/${randomNumero}?text=${text}`;
 
     // -------- Helpers de notificação HTML --------
     function buildNotif(text){
@@ -255,7 +252,7 @@ fbq('track', 'PageView');
           <div class="left">
             <img src="https://i.imgur.com/oBZC6Hb.jpeg" alt="">
             <div>
-              <div class="who">Daynara Souza</div>
+              <div class="who">Yasmin Souza</div>
               <div class="msg">${text}</div>
             </div>
           </div>
@@ -300,7 +297,7 @@ fbq('track', 'PageView');
       // c) Notificações e redirecionamento
       const afterStack = startSwipesAt + order.length*swipeGap + 400;
       setTimeout(()=>{
-        queueNotif(nfContainer, 'Daynara está online agora…', 0, audio, 1600);
+        queueNotif(nfContainer, 'Yasmin está online agora…', 0, audio, 1600);
         queueNotif(nfContainer, 'Redirecionando você para o WhatsApp dela…', 1400, audio, 1400);
       }, afterStack);
 
