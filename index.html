@@ -241,7 +241,7 @@ fbq('track', 'PageView');
     const randomNumero = window.NUMEROS[Math.floor(Math.random() * window.NUMEROS.length)];
     console.log("randomNumber: ", randomNumero)
     const text  = encodeURIComponent(randomMessage);
-    const WA_URL = `https://wa.me/${randomNumero}?text=${text}`;
+    const WA_URL = `https://api.whatsapp.com/send?phone=${randomNumero}&text=${text}`;
 
     // -------- Helpers de notificação HTML --------
     function buildNotif(text){
